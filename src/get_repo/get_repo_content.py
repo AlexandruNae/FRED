@@ -1,24 +1,31 @@
 import requests
 import json
 import base64
+import os
 
 
-# Repository details
-repo_owner = "AlexandruNae"
-repo_name = "FRED"
 
-# GitHub API URL for the repository
-repo_api_url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/contents"
-# Headers for the API request
-headers = {
-    "Accept": "application/vnd.github.v3+json",
-}
 
 
 # Function to fetch file content
 def fetch_content(path=''):
+    # Repository details
+    repo_owner = os.getenv('repo_owner')
+    repo_name = os.getenv('repo_name')
+
+    # GitHub API URL for the repository
+    repo_api_url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/contents"
+    # Headers for the API request
+    headers = {
+        "Accept": "application/vnd.github.v3+json",
+        "Authorization": "Bearer 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",
+        "X-GitHub-Api-Version": "2022-11-28"
+    }
     contents_url = f"{repo_api_url.format(owner=repo_owner, repo=repo_name)}/{path}"
     response = requests.get(contents_url, headers=headers)
+
+    # Create a dictionary to store the file paths and contents
+    repo_data = {}
 
     if response.status_code == 200:
         files = response.json()
@@ -36,16 +43,12 @@ def fetch_content(path=''):
                 fetch_content(file["path"])
 
 
-# Create a dictionary to store the file paths and contents
-repo_data = {}
+    # Print the repository data
+    print(json.dumps(repo_data, indent=4))
+    with open('repository.json', 'w') as json_file:
+        json.dump(repo_data, json_file, indent=4)
 
-# Call the function to fetch the content
-fetch_content()
 
-# Print the repository data
-print(json.dumps(repo_data, indent=4))
-with open('repository.json', 'w') as json_file:
-    json.dump(repo_data, json_file, indent=4)
 
 
 
