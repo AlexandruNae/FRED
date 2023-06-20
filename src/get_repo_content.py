@@ -1,42 +1,54 @@
-import os
+import requests
 import json
-from git import Repo
+import base64
 
 
-def copy_repo_contents(repo_url, destination_folder):
-    # Clone the Git repository
-    repo = Repo.clone_from(repo_url, destination_folder)
+# Repository details
+repo_owner = "AlexandruNae"
+repo_name = "FRED"
 
-    # Get the root directory of the cloned repository
-    repo_root = repo.working_tree_dir
-
-    # Traverse the repository directory and its subdirectories
-    files_data = []
-    for root, dirs, files in os.walk(repo_root):
-        for file_name in files:
-            file_path = os.path.join(root, file_name)
-
-            # Read the contents of each file
-            with open(file_path, "r") as file:
-                file_content = file.read()
-
-            # Create a dictionary entry for the file
-            file_data = {
-                "file_path": file_path,
-                "file_content": file_content
-            }
-            files_data.append(file_data)
-
-    # Write the files' data to a JSON file
-    json_file_path = os.path.join(destination_folder, "repo_contents.json")
-    with open(json_file_path, "w") as json_file:
-        json.dump(files_data, json_file, indent=4)
-
-    print(f"Repository contents copied and JSON file created: {json_file_path}")
+# GitHub API URL for the repository
+repo_api_url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/contents"
+# Headers for the API request
+headers = {
+    "Accept": "application/vnd.github.v3+json",
+}
 
 
-# Example usage
-repo_url = "https://github.com/example-user/example-repo.git"
-destination_folder = "repo_copy"
+# Function to fetch file content
+def fetch_content(path=''):
+    contents_url = f"{repo_api_url.format(owner=repo_owner, repo=repo_name)}/{path}"
+    response = requests.get(contents_url, headers=headers)
 
-copy_repo_contents(repo_url, destination_folder)
+    if response.status_code == 200:
+        files = response.json()
+        if type(files) is dict:
+            files = [files]
+
+        for file in files:
+            if file["type"] == "file" and '.idea' not in file['path']:
+                file_response = requests.get(file["url"], headers=headers)
+                if file_response.status_code == 200:
+                    file_data = file_response.json()
+                    file_content = base64.b64decode(file_data["content"]).decode('utf-8')
+                    repo_data[file["path"]] = file_content
+            elif file["type"] == "dir":
+                fetch_content(file["path"])
+
+
+# Create a dictionary to store the file paths and contents
+repo_data = {}
+
+# Call the function to fetch the content
+fetch_content()
+
+# Print the repository data
+print(json.dumps(repo_data, indent=4))
+with open('repository.json', 'w') as json_file:
+    json.dump(repo_data, json_file, indent=4)
+
+
+
+# repo_url = "https://github.com/AlexandruNae/FRED"
+# json_file_path = "C:\\Users\\alexn\\PycharmProjects\\fred_repo_testing\\repo.json"
+# access_token = "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"
