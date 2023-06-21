@@ -1,6 +1,6 @@
-from src.get_repo.get_repo_content import fetch_content
-from src.get_repo.format_json import transform_data
-from src.get_repo.create_json import create_json
+from no_clone.get_repo_content import fetch_content
+from no_clone.format_json import transform_data
+from no_clone.create_json import create_json
 
 
 json_file_path = 'repository.json'
