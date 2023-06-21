@@ -10,4 +10,3 @@ folder_path = f"../../cloned_repos/{repo_name}"
 
 clone_repo(repo_owner, repo_name, token)
 folder_dict = load_files(folder_path, repo_name)
-

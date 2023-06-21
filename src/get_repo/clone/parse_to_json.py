@@ -17,9 +17,3 @@ def load_files(folder_path, repo_name):
     with open(f'../{repo_name}.json', 'w') as json_file:
         json.dump(folder_dict, json_file, indent=4)
     return folder_dict
-
-
-# Specify the directory where the files are located
- # replace with your directory
-
-
