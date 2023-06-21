@@ -3,6 +3,7 @@ import json
 import base64
 import os
 
+
 # Function to fetch file content
 def fetch_content(path=''):
     # Repository details
@@ -43,14 +44,6 @@ def fetch_content(path=''):
 
     existing_data.update(repo_data)
     # Print the repository data
-    print(json.dumps(repo_data, indent=4))
+    # print(json.dumps(repo_data, indent=4))
     with open('repository.json', 'w') as json_file:
         json.dump(existing_data, json_file, indent=4)
-
-
-
-
-
-# repo_url = "https://github.com/AlexandruNae/FRED"
-# json_file_path = "C:\\Users\\alexn\\PycharmProjects\\fred_repo_testing\\repo.json"
-# access_token = "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"
