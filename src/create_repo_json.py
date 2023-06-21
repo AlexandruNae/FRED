@@ -5,5 +5,5 @@ from src.get_repo.create_json import create_json
 
 json_file_path = 'repository.json'
 create_json(json_file_path)
-fetch_content()
+fetch_content(json_file_path)
 transform_data()

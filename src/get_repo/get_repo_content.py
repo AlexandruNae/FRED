@@ -10,15 +10,20 @@ def fetch_content(path=''):
     repo_owner = os.getenv('repo_owner')
     repo_name = os.getenv('repo_name')
     fine_grained_token = os.getenv('fine_grained_token')
+
+    repo_owner_apicrypto = os.getenv('repo_owner_apicrypto')
+    repo_name_apicrypto = os.getenv('repo_name_apicrypto')
+    apicrypto_token = os.getenv('apicrypto_repo')
+
     # GitHub API URL for the repository
-    repo_api_url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/contents"
+    repo_api_url = f"https://api.github.com/repos/{repo_owner_apicrypto}/{repo_name_apicrypto}/contents"
     # Headers for the API request
     headers = {
         "Accept": "application/vnd.github.v3+json",
-        "Authorization": f"Bearer {fine_grained_token}",
+        "Authorization": f"Bearer {apicrypto_token}",
         "X-GitHub-Api-Version": "2022-11-28"
     }
-    contents_url = f"{repo_api_url.format(owner=repo_owner, repo=repo_name)}/{path}"
+    contents_url = f"{repo_api_url.format(owner=repo_owner_apicrypto, repo=repo_name_apicrypto)}/{path}"
     response = requests.get(contents_url, headers=headers)
 
     # Create a dictionary to store the file paths and contents
@@ -44,6 +49,6 @@ def fetch_content(path=''):
 
     existing_data.update(repo_data)
     # Print the repository data
-    # print(json.dumps(repo_data, indent=4))
+    print(json.dumps(repo_data, indent=4))
     with open('repository.json', 'w') as json_file:
         json.dump(existing_data, json_file, indent=4)
