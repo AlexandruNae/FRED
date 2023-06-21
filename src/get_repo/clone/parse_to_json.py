@@ -14,6 +14,6 @@ def load_files(folder_path, repo_name):
             with open(item_path, 'r', errors='ignore') as f:
                 content = f.read()
             folder_dict[item] = content
-    with open(f'../{repo_name}.json', 'w') as json_file:
+    with open(f'../repo_json/{repo_name}.json', 'w') as json_file:
         json.dump(folder_dict, json_file, indent=4)
     return folder_dict

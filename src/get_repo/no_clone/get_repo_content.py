@@ -44,11 +44,11 @@ def fetch_content(path=''):
             elif file["type"] == "dir" and '.idea' not in file['path']:
                 fetch_content(file["path"])
 
-    with open('../../repository.json', 'r') as file:
+    with open('../../repo_json/repository.json', 'r') as file:
         existing_data = json.loads(file.read())
 
     existing_data.update(repo_data)
     # Print the repository data
     print(json.dumps(repo_data, indent=4))
-    with open('../../repository.json', 'w') as json_file:
+    with open('../../repo_json/repository.json', 'w') as json_file:
         json.dump(existing_data, json_file, indent=4)
