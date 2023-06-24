@@ -23,6 +23,9 @@ export default class CurrentMessage extends Component {
         this.context.mockHistory.messages["message" + numberOfMessages][1] = this.context.currentPrompt;
     }
 
+    /**
+     * Adds a new FRED message to the list of already existing messages
+     */
     mockFredMessage = () => {
         const numberOfMessages = Object.keys(this.context.mockHistory.messages).length;
         this.context.mockHistory.messages["message" + numberOfMessages] = [];

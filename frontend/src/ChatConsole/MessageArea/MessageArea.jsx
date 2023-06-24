@@ -12,6 +12,9 @@ export default class MessageArea extends Component {
         };
     }
 
+    /**
+     * Triggers an update for the re render of the components
+     */
     toggleUpdateHistory = () => {
         this.setState({updateHistory: !this.state.updateHistory});
     }
