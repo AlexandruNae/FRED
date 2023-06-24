@@ -1,0 +1,29 @@
+{
+    "src": {
+        "main": {
+            "java": {
+                "com": {
+                    "app": {
+                        "meditatiiapp": {
+                            "MeditatiiappApplication.java": "package com.app.meditatiiapp;\n\nimport org.springframework.boot.SpringApplication;\nimport org.springframework.boot.autoconfigure.SpringBootApplication;\n\n@SpringBootApplication\npublic class MeditatiiappApplication {\n\n    public static void main(String[] args) {\n        SpringApplication.run(MeditatiiappApplication.class, args);\n    }\n\n}\n"
+                        }
+                    }
+                }
+            },
+            "resources": {
+                "application.properties": "## Spring DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)\nspring.datasource.url = jdbc:mysql://localhost:3306/anunturimeditatii?allowPublicKeyRetrieval=true&useSSL=false\nspring.datasource.username = root\nspring.datasource.password = root\n\n\n#spring.datasource.url = jdbc:mysql://localhost:3306/anunturimeditatii?autoReconnect=true&useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC\n#spring.datasource.username = root\n#spring.datasource.password = Pitagora007#1\n\n\nspring.servlet.multipart.maxFileSize=100MB\n\nspring.servlet.multipart.maxRequestSize=100MB\n\nserver.tomcat.max-swallow-size=-1\n\nserver.servlet.session.tracking-modes=cookie\n## Hibernate Properties\n# The SQL dialect makes Hibernate generate better SQL for the chosen database\nspring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect\n\nspring.mail.host=smtp.gmail.com\nspring.mail.port=587\nspring.mail.username=lectii.meditatii.anunturi@gmail.com\nspring.mail.password=Dirichlet007#1\nspring.mail.properties.mail.smtp.auth=true\nspring.mail.properties.mail.smtp.starttls.enable=true\n\n\n\n"
+            }
+        },
+        "test": {
+            "java": {
+                "com": {
+                    "app": {
+                        "meditatiiapp": {
+                            "MeditatiiappApplicationTests.java": "package com.app.meditatiiapp;\n\nimport org.junit.jupiter.api.Test;\nimport org.springframework.boot.test.context.SpringBootTest;\n\n@SpringBootTest\nclass MeditatiiappApplicationTests {\n\n    @Test\n    void contextLoads() {\n    }\n\n}\n"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
