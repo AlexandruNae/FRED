@@ -1,0 +1,21 @@
+{
+    "id": "chatcmpl-7UtQuOD3y0Wlmnwr0pNNNxcGIUWwV",
+    "object": "chat.completion",
+    "created": 1687597280,
+    "model": "gpt-3.5-turbo-0301",
+    "choices": [
+        {
+            "index": 0,
+            "message": {
+                "role": "assistant",
+                "content": "Sure, here's an example of a JUnit test for the getById method in the AccountController class:\n\n```java\npackage com.ing.customerapidemo.controller;\n\nimport com.ing.customerapidemo.dto.AccountDto;\nimport com.ing.customerapidemo.service.AccountService;\nimport org.junit.jupiter.api.BeforeEach;\nimport org.junit.jupiter.api.Test;\nimport org.mockito.Mock;\nimport org.mockito.MockitoAnnotations;\nimport org.springframework.http.HttpStatus;\nimport org.springframework.http.ResponseEntity;\n\nimport java.util.Optional;\n\nimport static org.junit.jupiter.api.Assertions.assertEquals;\nimport static org.mockito.ArgumentMatchers.anyLong;\nimport static org.mockito.Mockito.when;\n\nclass AccountControllerTest {\n\n    @Mock\n    private AccountService accountService;\n\n    private AccountController accountController;\n\n    @BeforeEach\n    void setUp() {\n        MockitoAnnotations.initMocks(this);\n        accountController = new AccountController(accountService);\n    }\n\n    @Test\n    void getById_whenAccountExists_shouldReturnAccountDtoWithHttpStatusOk() {\n        // Arrange\n        AccountDto accountDto = new AccountDto();\n        accountDto.setId(1L);\n        accountDto.setAccountNumber(\"12345678\");\n        accountDto.setBalance(1000.0);\n\n        when(accountService.findById(accountDto.getId())).thenReturn(accountDto);\n\n        // Act\n        ResponseEntity<AccountDto> responseEntity = accountController.getById(accountDto.getId());\n\n        // Assert\n        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());\n        assertEquals(accountDto, responseEntity.getBody());\n    }\n\n    @Test\n    void getById_whenAccountDoesNotExist_shouldReturnHttpStatusNotFound() {\n        // Arrange\n        when(accountService.findById(anyLong())).thenReturn(null);\n\n        // Act\n        ResponseEntity<AccountDto> responseEntity = accountController.getById(1L);\n\n        // Assert\n        assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());\n    }\n}\n```\n\nThis test uses Mockito to mock the AccountService dependency and test the behavior of the getById method under different scenarios. You can put this test file under the \"src/test/java\" directory in the same package as the AccountController class."
+            },
+            "finish_reason": "stop"
+        }
+    ],
+    "usage": {
+        "prompt_tokens": 605,
+        "completion_tokens": 409,
+        "total_tokens": 1014
+    }
+}
