@@ -6,13 +6,11 @@ function App() {
 
   return (
     <div>
-      <header className={styles.app}>
-
-        <AppProvider>
+      <AppProvider>
+        <header className={styles.app}>
           <AppContainer />
-        </AppProvider>
-
-      </header>
+        </header>
+      </AppProvider>
     </div>
   );
 }

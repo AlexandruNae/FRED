@@ -7,18 +7,18 @@ export class AppProvider extends Component {
         super(props)
 
         this.state = {
-            userName: "Alex",
-            age: 25,
-            superpower: "Flight",
-            color: "Blue",
-            speed: "150kph",
+            username: 'Alex',
 
-            isModalOpen: false,
+            currentPrompt: '',
+            isPromptSubmitted: false,
+
+            mockHistory: {
+                messages: {
+                    message0: ["Fred", "Hi! How can I help?"]
+                }
+            }
+
         }
-    }
-
-    toggleModal = () => {
-        this.setState({ isModalOpen: !this.state.isModalOpen })
     }
 
     render() {

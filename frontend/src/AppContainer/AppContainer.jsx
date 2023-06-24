@@ -13,6 +13,8 @@ export default class AppContainer extends Component {
     static contextType = AppContext;
 
     render() {
+        console.clear();
+        
         return (
             <AppProvider>
                 <div className={styles.appContainer}>
