@@ -1,0 +1,15 @@
+@import '../../public/constants/colors.module.scss';
+
+.sideBar {
+    background-color: $secondary-blue;
+    width: 25%;
+    height: 100%;
+
+    border-right: 1px solid $light-blue;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.title {
+    color: white;
+}

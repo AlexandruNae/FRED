@@ -1,0 +1,14 @@
+.appContainer {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+
+    position: relative;
+}
+
+.codeAndChat {
+    height: 100vh;
+    width: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+}
