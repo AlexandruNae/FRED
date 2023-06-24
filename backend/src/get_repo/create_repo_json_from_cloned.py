@@ -1,6 +1,5 @@
 import os
-from src.get_repo.clone.clone_repo import clone_repo
-from src.get_repo.clone.parse_to_json import load_files
+from clone.parse_to_json import load_files
 
 
 repo_owner = os.getenv('repo_owner_apicrypto')
