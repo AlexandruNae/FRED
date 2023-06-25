@@ -32,9 +32,6 @@ export const Icon = styled.i(
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		&:hover {
-			background: #dfdfdf;
-		}
 	`
 )
 
