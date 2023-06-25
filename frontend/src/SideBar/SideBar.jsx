@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styles from './SideBar.module.scss'
+import FileExplorer from './FileExplorer/FileExplorer'
 
 export default class SideBar extends Component {
     render() {
@@ -8,6 +9,8 @@ export default class SideBar extends Component {
                 <div className={styles.title}>
                     File Explorer
                 </div>
+
+                <FileExplorer/>
             </div>
         )
     }
