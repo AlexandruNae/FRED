@@ -1,0 +1,16 @@
+.statsContainer {
+    opacity: 1;
+    transition: 0.5s ease all;
+}
+
+.stats {
+    margin-bottom: 5px;
+}
+
+.stats:first-child {
+    margin-top: 10px;
+}
+
+.statsHidden {
+    opacity: 0;
+}

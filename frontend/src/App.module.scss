@@ -1,0 +1,9 @@
+@import '../public/constants/colors.module.scss';
+
+.app {
+  box-sizing: border-box;
+  background-color: $primary-blue;
+  min-height: 100vh;
+
+  font-family: 'Montserrat';
+}
