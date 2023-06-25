@@ -16,9 +16,9 @@ export const Node = styled.ul(
 		padding: 0 16px;
 		background: transparent;
 		color: ${isOpen ? '#fff' : '#9ca2a7'};
-		border-right: ${isOpen ? '3px solid #69A1F6' : '3px solid transparent'};
+		border-right: ${isOpen ? '3px solid #ffa500' : '3px solid transparent'};
 		&:hover {
-			background: #f0f0f0;
+			background: #282C34;
 		}
 	`
 )

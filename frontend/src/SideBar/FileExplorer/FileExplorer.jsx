@@ -1,11 +1,10 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
-import axios from 'axios'
+import ReactDOM from 'react-dom/client'
 
 import styles from './FileExplorer.module.scss'
 import TreeView from '../TreeView/TreeView'
 
-export default function FileExplorer() {
+export default function FileExplorer() { 
 	const [selected, setSelected] = React.useState('')
 	const [breadcrumbs, setBreadcrumbs] = React.useState([])
 	const [selectedFiles, setSelectedFiles] = React.useState([])
@@ -21,7 +20,7 @@ export default function FileExplorer() {
 						{ name: 'File1.1', type: 'file' },
 						{ name: 'File1.2', type: 'file' }
 					]
-				},
+				}, 
 				{
 					name: 'Folder2',
 					type: 'folder',
@@ -71,24 +70,9 @@ export default function FileExplorer() {
 		if (node.type === 'folder') onToggle(node.name)
 		setSelected(node.name)
 		setBreadcrumbs((breadcrumbs) => [...breadcrumbs, node.name])
-	}
 
-	// React.useEffect(() => {
-	// 	try {
-	// 		async function getFiles() {
-	// 			const {
-	// 				data
-	// 			} = await axios.post(
-	// 				'http://localhost:3000/dev/jupyter-saas/listFiles',
-	// 				{ root_dir: 'user1' }
-	// 			)
-	// 			setData(data.data)
-	// 		}
-	// 		getFiles()
-	// 	} catch (error) {
-	// 		console.error(error)
-	// 	}
-	// }, [])
+		console.log("FILE SELECTED: ", node.name);
+	}
 
 	return (
 		<div className={styles.wrapper}>
@@ -101,17 +85,11 @@ export default function FileExplorer() {
 					/>
 				</main>
 			</div>
-			<div className={styles.section}>
-				Selected: {selected ? selected : 'Select a folder or a file!'}
-				<ul>
-					{selectedFiles.length > 0 &&
-						selectedFiles.map((file, idx) => {
-							return <li key={idx}>{file}</li>
-						})}
-				</ul>
-			</div>
 		</div>
 	)
 }
 
-ReactDOM.render(<FileExplorer />, document.getElementById('root'))
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<FileExplorer />);
+
+              
