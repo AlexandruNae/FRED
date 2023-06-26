@@ -1,0 +1,46 @@
+@import '../../../public/constants/colors.module.scss';
+
+.tabsList {
+    display: flex;
+    
+    background-color: $secondary-blue;
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid $light-blue;
+}
+
+.tab {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    height: 100%;
+    color: white;
+    padding-inline: 10px;
+
+    border: 1px solid $light-blue;
+    border-bottom: none;
+}
+
+.tab:hover {
+    filter: brightness(1.3);
+}
+
+.activeTab {
+    background-color: $primary-blue;
+    border-bottom: $primary-blue;
+    height: calc(100% + 1px);
+}
+
+.closeTab {
+    background-image: url('../../../public/assets/icons/close.svg');
+    width: 20px;
+    height: 20px;
+
+    opacity: 0;
+}
+
+.showIfActive {
+    opacity: 1;
+}

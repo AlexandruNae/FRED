@@ -16,7 +16,7 @@ export class AppProvider extends Component {
                 messages: {
                     message0: ["Fred", "Hi! How can I help?"]
                 }
-            }
+            },
 
         }
     }
