@@ -12,7 +12,7 @@ export const Node = styled.ul(
 		height: 32px;
 		border-radius: 4px 0 0 4px;
 		cursor: pointer;
-		font-size: 14px;
+		font-size: 16px;
 		padding: 0 16px;
 		background: transparent;
 		color: ${isOpen ? '#fff' : '#9ca2a7'};

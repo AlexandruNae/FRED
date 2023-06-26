@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import styles from './CurrentMessage.module.scss'
 import AppContext, { AppProvider } from '../../../AppContext';
 import ConsoleLoader from './ConsoleLoader/ConsoleLoader';

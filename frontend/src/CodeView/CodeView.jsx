@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import styles from './CodeView.module.scss'
 import OpenTabs from './OpenTabs/OpenTabs'
 import OpenCode from './OpenCode/OpenCode'

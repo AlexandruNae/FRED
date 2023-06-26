@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import styles from './AppContainer.module.scss'
 import SideBar from '../SideBar/SideBar';
 import CodeView from '../CodeView/CodeView';
@@ -6,10 +6,6 @@ import ChatConsole from '../ChatConsole/ChatConsole';
 import AppContext, { AppProvider } from '../AppContext';
 
 export default class AppContainer extends Component {
-    constructor(props) {
-        super(props)
-    }
-
     static contextType = AppContext;
 
     render() {
