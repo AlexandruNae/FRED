@@ -1,0 +1,16 @@
+@import '../../../../public/constants/colors.module.scss';
+
+.message {
+    display: flex;
+    gap: 15px;
+    padding-block: 5px;
+}
+
+.userMessage {
+    font-weight: bold;
+}
+
+.systemMessage {
+    font-weight: bold;
+    color: $orange;
+}

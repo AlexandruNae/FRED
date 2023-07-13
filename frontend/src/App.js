@@ -1,16 +1,13 @@
 import styles from './App.module.scss';
-import AppContainer from './AppContainer/AppContainer';
-import { AppProvider } from './AppContext';
+import AppContainer from './components/organisms/AppContainer/AppContainer';
 
 function App() {
 
   return (
     <div>
-      <AppProvider>
-        <header className={styles.app}>
-          <AppContainer />
-        </header>
-      </AppProvider>
+      <header className={styles.app}>
+        <AppContainer />
+      </header>
     </div>
   );
 }

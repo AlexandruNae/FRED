@@ -1,0 +1,20 @@
+@import '../../../../public/constants/colors.module.scss';
+
+.console {
+    display: flex;
+    flex-direction: column;
+
+    background-color: $secondary-blue;
+    width: 100%;
+    height: 25%;
+
+    border-top: 1px solid $light-blue;
+    padding: 5px;
+    box-sizing: border-box;
+
+    overflow: hidden;
+}
+
+.title {
+    color: white;
+}
